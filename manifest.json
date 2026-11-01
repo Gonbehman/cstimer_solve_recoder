@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "csTimer Solve Recorder",
+  "version": "0.5.0",
+  "description": "csTimerの計測に合わせてWebカメラを録画し、条件を満たした回だけ保存",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "action": {
+    "default_popup": "options.html",
+    "default_title": "録画の設定"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cstimer.net/*",
+        "https://*.cstimer.net/*",
+        "http://cstimer.net/*",
+        "http://*.cstimer.net/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://cstimer.net/*",
+        "https://*.cstimer.net/*",
+        "http://cstimer.net/*",
+        "http://*.cstimer.net/*"
+      ],
+      "js": [
+        "math.js",
+        "recorder.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>csTimer 録画設定</title>
+<style>body{font:14px system-ui,sans-serif;width:300px;margin:16px;color:#e8edf5;background:#151b26}h1{font-size:17px;margin:0 0 6px}h2{font-size:13px;color:#8fb8ff;margin:14px 0 2px}label{display:block;margin:8px 0 3px}input[type=number],input[type=text]{display:block;box-sizing:border-box;width:100%;margin-top:4px;padding:6px;border:1px solid #46546a;border-radius:6px;background:#222d3d;color:#fff}.check{display:flex;gap:8px;align-items:center}input[type=range]{width:100%}.row{display:flex;justify-content:space-between}button{margin-top:12px;padding:8px 16px;border:0;border-radius:6px;background:#439aff;color:#081727;cursor:pointer}small{color:#aebcd0}#status{color:#7de0b3;min-height:1em}</style></head>
+<body><h1>csTimer 録画設定</h1>
+<form id="form">
+<h2>プレビュー（即時反映）</h2>
+<label class="check"><input id="previewShow" type="checkbox">プレビューを表示</label>
+<label><span class="row"><span>幅</span><span id="pwv"></span></span><input id="previewWidth" type="range" min="80" max="800" step="10"></label>
+<h2>保存条件（いずれかを満たせば保存）</h2>
+<label class="check"><input id="bestOn" type="checkbox">セッションベスト更新</label>
+<label class="check"><input id="thresholdOn" type="checkbox">しきい値以下</label>
+<label>しきい値（秒）<input id="threshold" type="number" min="0" step="0.01" required></label>
+<h2>保存先</h2>
+<label>ダウンロードフォルダ内のフォルダ<input id="saveFolder" type="text" placeholder="cstimer_rec"></label>
+<small>例: cstimer_rec / cube/3x3。空欄ならダウンロード直下。無ければ自動作成。</small>
+<h2>録画範囲</h2>
+<label>開始前に遡る秒数<input id="preRoll" type="number" min="0" max="10" step="1" required></label>
+<small>インスペクション開始より前。実際は設定値〜+1秒。</small>
+<label>停止後に録る秒数<input id="postRoll" type="number" min="0" max="10" step="0.1" required></label>
+<label>未保存動画を保持する秒数<input id="holdSec" type="number" min="5" max="600" required></label>
+<button type="submit">保存</button><p id="status"></p></form>
+<script src="options.js"></script></body></html>
