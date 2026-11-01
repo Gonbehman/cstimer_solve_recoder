@@ -80,7 +80,7 @@ Click the extension icon to open the settings.
 
 ## License
 
-TBD (add a `LICENSE` file before publishing)
+[MIT License](LICENSE)
 
 ## Disclaimer
 
